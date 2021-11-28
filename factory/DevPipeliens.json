@@ -1,0 +1,9 @@
+{
+	"name": "DevPipeliens",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fc7f57b7-cb61-4f85-9a38-ea1cd5f348a9",
+		"tenantId": "91c76626-d99f-4886-bcc0-fc832bf67320"
+	}
+}
