@@ -16,10 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Binary1",
+						"referenceName": "Binary2",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						{
+							"value": "Child Items",
+							"type": "Expression"
+						}
+					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
 						"enablePartitionDiscovery": false
