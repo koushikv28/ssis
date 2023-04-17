@@ -83,11 +83,11 @@
 						"type": "DataFlowReference",
 						"parameters": {
 							"LastUpdatedDate": {
-								"value": "'@{activity('LastUpdatedDate').output.firstRow}'",
+								"value": "@activity('LastUpdatedDate').output.firstRow",
 								"type": "Expression"
 							},
 							"MaxDate": {
-								"value": "'@{activity('LastUpdatedDate').output.firstRow}'",
+								"value": "@activity('LastUpdatedDate').output.firstRow",
 								"type": "Expression"
 							}
 						}
