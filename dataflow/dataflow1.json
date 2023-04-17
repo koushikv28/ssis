@@ -15,6 +15,9 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
+				"parameters{",
+				"     parameter1 as string",
+				"}",
 				"source(output(",
 				"          ProductKey as integer,",
 				"          OrderDateKey as integer,",
@@ -47,7 +50,7 @@
 				"     validateSchema: false,",
 				"     batchSize: 0,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'select * from [FactInternetSales_test]\\nwhere Updateddate between \\n',",
+				"     query: (select * from [FactInternetSales_test]\\nwhere Updateddate > '@{activity('lookup1').output.Firstrow.LastUploadedDate}\\n \\n),",
 				"     format: 'query') ~> source1"
 			]
 		}
