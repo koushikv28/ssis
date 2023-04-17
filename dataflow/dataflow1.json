@@ -16,8 +16,8 @@
 			"transformations": [],
 			"scriptLines": [
 				"parameters{",
-				"     LastUpdatedDate as string,",
-				"     MaxDate as string",
+				"     LastUpdatedDate as timestamp,",
+				"     MaxDate as timestamp",
 				"}",
 				"source(output(",
 				"          ProductKey as integer,",
@@ -51,7 +51,7 @@
 				"     validateSchema: false,",
 				"     batchSize: 0,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: (select * from [FactInternetSales_test]\\nwhere Updateddate > '@{activity('lookup1').output.Firstrow.LastUploadedDate}\\n \\n),",
+				"     query: (select * from [FactInternetSales_test]\\nwhere Updateddate > $LastUpdatedDate\\nand \\n Updateddate<=$MaxDate\\n ),",
 				"     format: 'query') ~> source1"
 			]
 		}
