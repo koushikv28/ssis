@@ -74,7 +74,12 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"BlobIncSource": {
+								"TableName": "FactInternetSales_test"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
