@@ -148,7 +148,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "FactInternetSales"
+			"table": "FactInternetSales_test"
 		}
 	}
 }
