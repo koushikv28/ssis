@@ -158,7 +158,10 @@
 				"outputs": [
 					{
 						"referenceName": "FactInternetSales_test_incdata",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "FactInternetSales_test"
+						}
 					}
 				]
 			}
