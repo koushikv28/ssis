@@ -19,7 +19,10 @@
 					"value": "@dataset().TableName",
 					"type": "Expression"
 				},
-				"folderPath": "20230418",
+				"folderPath": {
+					"value": "@concat('sensor/micActivatedEvent/', formatDateTime(utcnow(), 'yyyy/MM/dd'))",
+					"type": "Expression"
+				},
 				"container": "incrementaldata"
 			},
 			"columnDelimiter": ",",
