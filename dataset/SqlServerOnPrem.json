@@ -9,6 +9,11 @@
 		"type": "SqlServerTable",
 		"schema": [
 			{
+				"name": "Orderid",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
 				"name": "ProductKey",
 				"type": "int",
 				"precision": 10
@@ -141,6 +146,12 @@
 			},
 			{
 				"name": "ShipDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Updateddate",
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
