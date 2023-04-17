@@ -122,7 +122,7 @@
 					"source": {
 						"type": "SqlServerSource",
 						"sqlReaderQuery": {
-							"value": "select * from [FactInternetSales_test]\nwhere updateddate >activity('LastUpdatedDate').output.firstRow \nand \tupdateddate<=activity('MaxUpdatedDate').output.firstRow",
+							"value": "select * from [FactInternetSales_test]\nwhere updateddate >\n'@{activity('LastUpdatedDate').output.firstRow.LastUploadedDate}' \nand updateddate <=\n'@{activity('MaxUpdatedDate').output.firstRow.LastUploadedDate}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
