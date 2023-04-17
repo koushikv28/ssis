@@ -5,12 +5,20 @@
 			"referenceName": "AzureBlobStorageinc",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "=",
+				"fileName": {
+					"value": "@dataset().TableName",
+					"type": "Expression"
+				},
 				"folderPath": "20230418",
 				"container": "incrementaldata"
 			},
