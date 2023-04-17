@@ -1,0 +1,23 @@
+{
+	"name": "FactInternetSales_test_incdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageinc",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "=",
+				"folderPath": "20230418",
+				"container": "incrementaldata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
