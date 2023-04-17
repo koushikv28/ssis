@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "Lookup1",
+				"name": "MaxUpdatedDate",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -63,7 +63,7 @@
 						]
 					},
 					{
-						"activity": "Lookup1",
+						"activity": "MaxUpdatedDate",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -80,7 +80,17 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"parameters": {
+							"LastUpdatedDate": {
+								"value": "'@{activity('LastUpdatedDate').output}'",
+								"type": "Expression"
+							},
+							"MaxDate": {
+								"value": "'@{activity('Lookup1').output.firstRow}'",
+								"type": "Expression"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
