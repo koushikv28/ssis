@@ -20,7 +20,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat('sensor/micActivatedEvent/', formatDateTime(utcnow(), 'yyyy/MM/dd'))",
+					"value": "@concat('', formatDateTime(utcnow(), 'yyyy/MM/dd'))",
 					"type": "Expression"
 				},
 				"container": "incrementaldata"
