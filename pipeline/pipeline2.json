@@ -42,7 +42,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "OrderDate))) as Updateddate\ninto [FactInternetSales_test]\nfrom [FactInternetSales]\n\nselect * from [FactInternetSales_test]\n\nselect max(Updateddate) maxupateddate\nfrom \n[FactInternetSales_test]",
+						"sqlReaderQuery": "select max(Updateddate) maxupateddate\nfrom \n[FactInternetSales_test]",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -53,7 +53,7 @@
 				}
 			},
 			{
-				"name": "Data flow1",
+				"name": "DFT",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
@@ -78,6 +78,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow1",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
