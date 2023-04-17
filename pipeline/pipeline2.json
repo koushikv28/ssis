@@ -83,18 +83,18 @@
 						"type": "DataFlowReference",
 						"parameters": {
 							"LastUpdatedDate": {
-								"value": "@activity('LastUpdatedDate').output.firstRow",
+								"value": "'@{activity('LastUpdatedDate').output.firstRow}'",
 								"type": "Expression"
 							},
 							"MaxDate": {
-								"value": "@activity('LastUpdatedDate').output.firstRow",
+								"value": "'@{activity('LastUpdatedDate').output.firstRow}'",
 								"type": "Expression"
 							}
 						}
 					},
-					"integrationRuntime": {
-						"referenceName": "integrationRuntime1",
-						"type": "IntegrationRuntimeReference"
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
 					},
 					"traceLevel": "Coarse"
 				}
