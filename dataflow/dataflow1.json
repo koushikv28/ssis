@@ -51,7 +51,7 @@
 				"     validateSchema: false,",
 				"     batchSize: 0,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: (select * from [FactInternetSales_test]\\nwhere Updateddate > $LastUpdatedDate\\nand \\n Updateddate<=$MaxDate\\n ),",
+				"     query: (select * from [FactInternetSales_test]),",
 				"     format: 'query') ~> source1"
 			]
 		}
