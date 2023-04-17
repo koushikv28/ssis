@@ -96,7 +96,7 @@
 						"referenceName": "integrationRuntime1",
 						"type": "IntegrationRuntimeReference"
 					},
-					"traceLevel": "Fine"
+					"traceLevel": "Coarse"
 				}
 			}
 		],
