@@ -187,7 +187,7 @@
 					"storedProcedureParameters": {
 						"lastrun": {
 							"value": {
-								"value": "@activity('MaxUpdatedDate').output.firstRow",
+								"value": "@activity('MaxUpdatedDate').output.firstRow.maxupateddate",
 								"type": "Expression"
 							},
 							"type": "String"
