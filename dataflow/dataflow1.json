@@ -99,7 +99,6 @@
 				"     upsertable:true,",
 				"     keys:['Orderid'],",
 				"     format: 'table',",
-				"     postSQLs:['update '],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
