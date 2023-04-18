@@ -155,12 +155,64 @@
 						"referenceName": "FactInternetSales_test_incdata",
 						"type": "DatasetReference",
 						"parameters": {
-							"TableName": "FactInternetSales_test"
+							"TableName": {
+								"value": "@pipeline().parameters.TableNameMain",
+								"type": "Expression"
+							}
 						}
 					}
 				]
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "DFT",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[watermarktable_update]",
+					"storedProcedureParameters": {
+						"lastrun": {
+							"value": {
+								"value": "@activity('MaxUpdatedDate').output.firstRow",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"tablename": {
+							"value": {
+								"value": "@pipeline().parameters.TableNameMain",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "SqlServerlocal",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
+		"parameters": {
+			"TableNameMain": {
+				"type": "string",
+				"defaultValue": "FactInternetSales_test"
+			}
+		},
 		"annotations": []
 	}
 }
