@@ -21,7 +21,11 @@
 					"name": "sink1"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "AlterRow1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Orderid as string,",
@@ -56,7 +60,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> BlobIncSource",
-				"BlobIncSource sink(allowSchemaDrift: true,",
+				"BlobIncSource alterRow(upsertIf(true())) ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          Orderid as long,",
@@ -91,8 +96,10 @@
 				"     deletable:false,",
 				"     insertable:true,",
 				"     updateable:false,",
-				"     upsertable:false,",
+				"     upsertable:true,",
+				"     keys:['Orderid'],",
 				"     format: 'table',",
+				"     postSQLs:['update '],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
