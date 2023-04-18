@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "\n@concat('@dataset().TableName','_', pipeline().TriggerTime)",
+					"value": "@concat('dataset().TableName','_', string(pipeline().TriggerTime))",
 					"type": "Expression"
 				},
 				"folderPath": {
